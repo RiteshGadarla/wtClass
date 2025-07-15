@@ -1,0 +1,15 @@
+.box{
+    height:200px;
+    width:200px;
+    background: aqua;
+    padding: 15px; /* all sides same value*/
+    border:20px solid blue;
+    margin: 20px;
+    box-sizing: border-box;
+    /* padding: 15px 20px; 2 values means top bottom one and right left one */
+    /* padding: 15px 20px 25px 30px; /* 4 values clockwise top right bottom left */
+    /* padding: 15px 20px 30px; 3 values means top right/left same value of middle and next last value will be bottom */
+}
+p{
+    background-color: yellow;
+}
