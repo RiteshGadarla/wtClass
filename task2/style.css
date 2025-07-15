@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+    background: #f5f5f5;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    padding: 20px;
+}
+
+img {
+    height: 20vh;
+    width: auto;
+    border-radius: 20px;
+    transition: transform 0.4s;
+    padding-top: 10px;
+}
+
+img:hover {
+    transform: scale(1.3);
+}

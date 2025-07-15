@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="gallery">
+    <img src="https://images.theconversation.com/files/625049/original/file-20241010-15-95v3ha.jpg?ixlib=rb-4.1.0&rect=4%2C12%2C2679%2C1521&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"
+         alt="dog2">
+    <img src="https://images.squarespace-cdn.com/content/v1/54822a56e4b0b30bd821480c/45ed8ecf-0bb2-4e34-8fcf-624db47c43c8/Golden+Retrievers+dans+pet+care.jpeg"
+         alt="dog3">
+    <img src="https://pethelpful.com/.image/w_3840,q_auto:good,c_limit/MTc0OTcwNDAxNDM5NTU3MDYw/toys-and-teacups-the-best-miniature-dog-breeds.jpg"
+         alt="dog4">
+    <img src="https://www.rover.com/blog/wp-content/uploads/2014/10/tiny-pug1.jpg" alt="dog5">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"
+         alt="dog puppy">
+</div>
+<script>
+    var images = document.querySelectorAll('.gallery img');
+    // Create modal elements
+    var modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = '0';
+    modal.style.left = '0';
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'rgba(0,0,0,0.7)';
+    modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.style.zIndex = '1000';
+    modal.style.visibility = 'hidden';
+
+    var modalImg = document.createElement('img');
+    modalImg.style.maxWidth = '90vw';
+    modalImg.style.maxHeight = '90vh';
+    modalImg.style.borderRadius = '10px';
+    modalImg.style.boxShadow = '0 4px 32px rgba(0,0,0,0.3)';
+    modal.appendChild(modalImg);
+
+    var closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.position = 'absolute';
+    closeBtn.style.top = '24px';
+    closeBtn.style.right = '40px';
+    closeBtn.style.fontSize = '48px';
+    closeBtn.style.color = '#fff';
+    closeBtn.style.cursor = 'pointer';
+    closeBtn.style.fontWeight = 'bold';
+    closeBtn.style.userSelect = 'none';
+    closeBtn.style.zIndex = '1001';
+    modal.appendChild(closeBtn);
+
+    document.body.appendChild(modal);
+
+    // Open modal on image click
+    images.forEach(function(img) {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+            modalImg.src = img.src;
+            modal.style.visibility = 'visible';
+        });
+    });
+
+    // Close modal on close button click
+    closeBtn.onclick = function() {
+        modal.style.visibility = 'hidden';
+        modalImg.src = '';
+    };
+
+    // Optional: close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.visibility = 'hidden';
+            modalImg.src = '';
+        }
+    });
+</script>
+</body>
+</html>
