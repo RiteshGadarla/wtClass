@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Page 2</h1>
+<p>This is page 2</p>
+<div class="button-container">
+    <button id="mouseTest">Mouse</button>
+    <div class="status-dot" id="statusDot"></div>
+</div>
+<script>
+    const mouseTestButton = document.getElementById('mouseTest');
+    const statusDot = document.getElementById('statusDot');
+
+    ["mouseover", "mouseout"].forEach(event =>
+        mouseTestButton.addEventListener(event, () => {
+            statusDot.style.backgroundColor = event === "mouseover" ? "green" : "red";
+        })
+    );
+</script>
+</body>
+</html>

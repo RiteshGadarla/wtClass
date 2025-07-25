@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Page Events</h1>
+<div class="button-container">
+    <button id="alertTest">Alert</button>
+    <button id="confirmTest">Confirm</button>
+    <button id="promptTest">Prompt</button>
+    <button id="leavePage">Leave</button>
+    <button id="otherPage">Page 2</button>
+    <button id="aboutMe">About Me</button>
+    <button id="mouseTest">Mouse</button>
+</div>
+
+<script>
+    window.onload = () => {
+        alert("Welcome to Page Event!");
+    }
+
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function (event) {
+            console.log('You Clicked',event.target.textContent);
+        })
+    })
+
+    const alertButton = document.getElementById('alertTest');
+    alertButton.addEventListener('click', () => {
+        alert("You Clicked!")
+    })
+
+    const confirmButton = document.getElementById('confirmTest');
+    confirmButton.addEventListener('click', () => {
+        confirm("Are you sure you clicked the button?")
+    })
+
+    const promptButton = document.getElementById('promptTest');
+    promptButton.addEventListener('click', () => {
+        prompt("Enter your prompt");
+    })
+
+    const leavePageButton = document.getElementById('leavePage');
+    leavePageButton.addEventListener('click', () => {
+        window.onbeforeunload = function (e) {
+            e.preventDefault();
+        };
+        alert("Unload handler is now set. Try closing or refreshing the page.");
+    });
+
+    const otherPageButton = document.getElementById('otherPage');
+    otherPageButton.addEventListener('click', () => {
+        alert("Going to Page 2")
+        location.href = 'index2.html';
+    });
+
+    const aboutMeButton = document.getElementById('aboutMe');
+    aboutMeButton.addEventListener('click', () => {
+        alert(navigator.userAgent);
+    })
+
+    const mouseTestButton = document.getElementById('mouseTest');
+    // mouseTestButton.addEventListener('mouseover', () => {
+    //     console.log("Mouse over");
+    // })
+    // mouseTestButton.addEventListener('mouseout', () => {
+    //     console.log("Mouse out");
+    // })
+    ["mouseover", "mouseout"].forEach(event =>
+        mouseTestButton.addEventListener(event, () => {
+            mouseTestButton.style.background = event === "mouseover" ? "grey" : "black";
+            console.log(`Mouse ${event === "mouseover" ? "over" : "out"}`);
+        })
+    );
+</script>
+</body>
+</html>

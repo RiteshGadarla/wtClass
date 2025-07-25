@@ -1,0 +1,46 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 360px;
+    margin: 50px auto;
+}
+
+.button-container button {
+    background: black;
+    color: white;
+    height: 40px;
+    width: 100px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container button:hover {
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
+.status-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    transition: background-color;
+    align-self: center;
+}
