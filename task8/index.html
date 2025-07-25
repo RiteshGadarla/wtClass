@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+</head>
+
+<body>
+<div class="main" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="container" style="border: 1px solid black; width: 300px; padding: 10px; text-align: center;">
+        <h2>ToDoList</h2>
+        <input type="text" id="task" placeholder="Add a task" style="height: 30px; width: 200px" />
+        <button id="mybtn">Add</button>
+        <ul id="list" style="padding-left: 0;"></ul>
+    </div>
+</div>
+
+<script>
+    // Style the main Add button
+    const addButton = document.getElementById("mybtn");
+    addButton.style.backgroundColor = "green";
+    addButton.style.color = "white";
+    addButton.style.height = "34px";
+    addButton.style.border = "none";
+    addButton.style.borderRadius = "5px";
+    addButton.style.cursor = "pointer";
+    addButton.style.marginLeft = "5px";
+    addButton.style.padding = "0 12px";
+
+    const list = document.getElementById("list");
+
+    addButton.addEventListener("click", () => {
+        const taskText = document.getElementById("task").value.trim();
+        if (taskText === "") return;
+
+        const li = document.createElement("li");
+        li.style.margin = "10px";
+        li.style.display = "flex";
+        li.style.justifyContent = "space-between";
+        li.style.alignItems = "center";
+        li.style.backgroundColor = "#f2f2f2";
+        li.style.padding = "10px";
+        li.style.borderRadius = "5px";
+
+        const span = document.createElement("span");
+        span.textContent = taskText;
+
+        const completeButton = document.createElement("button");
+        completeButton.textContent = "Complete";
+        completeButton.style.backgroundColor = "blue";
+        completeButton.style.color = "white";
+        completeButton.style.border = "none";
+        completeButton.style.padding = "5px 10px";
+        completeButton.style.borderRadius = "5px";
+        completeButton.style.cursor = "pointer";
+        completeButton.style.marginRight = "5px";
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.style.backgroundColor = "red";
+        deleteButton.style.color = "white";
+        deleteButton.style.border = "none";
+        deleteButton.style.padding = "5px 10px";
+        deleteButton.style.borderRadius = "5px";
+        deleteButton.style.cursor = "pointer";
+
+        completeButton.addEventListener("click", () => {
+            span.style.textDecoration = "line-through";
+            // li.remove();
+        });
+
+        deleteButton.addEventListener("click", () => {
+            li.remove();
+        });
+
+        li.appendChild(span);
+        li.appendChild(completeButton);
+        li.appendChild(deleteButton);
+        list.appendChild(li);
+
+        document.getElementById("task").value = "";
+    });
+</script>
+</body>
+
+</html>
