@@ -5,3 +5,10 @@
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" width="50" height="50"/>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="50" height="50"/>
 </div>
+
+---
+
+To temporarily host in your local network 
+```bash
+  python3 -m http.server 8000
+```

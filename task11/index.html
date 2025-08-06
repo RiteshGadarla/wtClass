@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Propagation Demo</title>
+</head>
+<body>
+<p>There are 2 Parent listeners for Parent</p>
+<div style="margin-bottom: 15px;">
+    <label>
+        <input type="checkbox" id="stopPropSwitch">
+        Enable stopPropagation() on Parent 1
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" id="stopImmediateSwitch">
+        Enable stopImmediatePropagation() on Parent 1
+    </label>
+</div>
+
+<div id="grandParent" style="padding:40px; border: 1px solid black; background:#ccc6c6;">
+    GrandParent
+    <div id="parent" style="padding:40px; background:#e5e3e3;">
+        Parent
+        <button id="child" style="padding:10px 20px;">Child</button>
+    </div>
+</div>
+
+<p id="message1" style="color: #760000; font-weight: bold;"></p>
+<p id="message2" style="color: #b10303; font-weight: bold;"></p>
+<p id="message3" style="color: #db0530; font-weight: bold;"></p>
+<p id="message4" style="color: #2d02b6; font-weight: bold;"></p>
+
+<script>
+    const messageGrand = document.getElementById('message1');
+    const messageParent1 = document.getElementById('message2');
+    const messageParent2 = document.getElementById('message3');
+    const messageChild = document.getElementById('message4');
+
+    const stopPropSwitch = document.getElementById('stopPropSwitch');
+    const stopImmediateSwitch = document.getElementById('stopImmediateSwitch');
+
+    // Grandparent
+    document.getElementById('grandParent').addEventListener("click", function () {
+        console.log('Grandparent handler (bubbling)');
+        messageGrand.textContent = "GrandParent Called!";
+        setTimeout(() => {
+            messageGrand.textContent = "";
+        }, 1500);
+    });
+
+    // Parent handler 1 (first registered listener)
+    document.getElementById('parent').addEventListener('click', function (event) {
+        console.log('Parent handler 1');
+
+        if (stopImmediateSwitch.checked) {
+            event.stopImmediatePropagation();
+            console.log('stopImmediatePropagation() applied');
+        } else if (stopPropSwitch.checked) {
+            event.stopPropagation();
+            console.log('stopPropagation() applied');
+        }
+
+        messageParent1.textContent = "Parent Handler 1 Called!";
+        setTimeout(() => {
+            messageParent1.textContent = "";
+        }, 1500);
+    });
+
+    // Parent handler 2 (second registered listener)
+    document.getElementById('parent').addEventListener('click', function () {
+        console.log('Parent handler 2');
+        messageParent2.textContent = "Parent Handler 2 Called!";
+        setTimeout(() => {
+            messageParent2.textContent = "";
+        }, 1500);
+    });
+
+    // Child
+    document.getElementById('child').addEventListener('click', function () {
+        console.log('Child handler');
+        messageChild.textContent = "Child Called!";
+        setTimeout(() => {
+            messageChild.textContent = "";
+        }, 1500);
+    });
+</script>
+</body>
+</html>

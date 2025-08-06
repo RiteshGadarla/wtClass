@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<form id="signupForm">
+    <input type="text" id="user" placeholder="Username">
+    <input type="password" id="pass" placeholder="Password">
+    <button type="submit">SignUp</button>
+</form>
+<p id="message" style="color: green; font-weight: bold;"></p>
+</body>
+
+<script>
+    document.getElementById('signupForm').addEventListener('submit',
+        function (e) {
+            e.preventDefault();
+            const username = document.getElementById('user').value.trim();
+            const password = document.getElementById('pass').value.trim();
+            const messageEl = document.getElementById('message');
+
+            if (username === '' || password === '') {
+                messageEl.style.color = 'red';
+                messageEl.textContent = "Missing Username or Password";
+                alert(messageEl.textContent);
+                return;
+            }
+
+            messageEl.style.color = 'green';
+            messageEl.textContent = 'Form submitted! Thank you, ' + username + '!';
+            alert(messageEl.textContent);
+            document.getElementById('signupForm').reset();
+        });
+</script>
+</html>
