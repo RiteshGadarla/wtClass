@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 19.99,
+    "stock": 150,
+    "description": "Ergonomic wireless mouse with adjustable DPI and long battery life."
+  },
+  {
+    "id": 2,
+    "name": "Bluetooth Headphones",
+    "category": "Electronics",
+    "price": 49.99,
+    "stock": 80,
+    "description": "Over-ear noise-cancelling Bluetooth headphones with 20 hours of playtime."
+  },
+  {
+    "id": 3,
+    "name": "Coffee Mug",
+    "category": "Kitchen",
+    "price": 9.99,
+    "stock": 200,
+    "description": "Ceramic coffee mug, 350ml, microwave and dishwasher safe."
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "category": "Footwear",
+    "price": 79.99,
+    "stock": 60,
+    "description": "Lightweight running shoes with breathable mesh and cushioned sole."
+  },
+  {
+    "id": 5,
+    "name": "Notebook",
+    "category": "Stationery",
+    "price": 4.99,
+    "stock": 300,
+    "description": "A5 lined notebook with 200 pages, perfect for notes and journaling."
+  }
+]
