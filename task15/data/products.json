@@ -38,5 +38,13 @@
     "price": 4.99,
     "stock": 300,
     "description": "A5 lined notebook with 200 pages, perfect for notes and journaling."
+  },
+  {
+    "name": "Cute Mug",
+    "category": "Kitchen",
+    "price": 10.69,
+    "stock": 20,
+    "description": "Mug with Cute Pic",
+    "id": 6
   }
 ]
